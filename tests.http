@@ -1,0 +1,17 @@
+@subscriptionKey = <your_subscription_key>
+@odataEntity = <odata_entity>
+@apimName = <api_management_name>
+@apiPath = <api_path>
+@query = <query_parameters>
+@staticWebAppUri = <static_web_app_uri>
+
+### Test APIM endpoint ODATA metadata (only works if Testing Product Group is attached to the API)
+GET https://{{apimName}}.azure-api.net/{{apiPath}}/$metadata
+Ocp-Apim-Subscription-Key: {{subscriptionKey}}
+
+### Test APIM endpoint ODATA table with Query (only works if Testing Product Group is attached to the API)
+GET https://{{apimName}}.azure-api.net/{{apiPath}}/{{odataEntity}}?{{query}}
+Ocp-Apim-Subscription-Key: {{subscriptionKey}}
+
+### Test Link Static Web App to APIM (only works when CORS policy is set to allow all origins)
+GET {{staticWebAppUri}}/{{apiPath}}/{{odataEntity}}?{{query}}
