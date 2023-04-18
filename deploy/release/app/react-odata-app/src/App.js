@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     async function fetchBusinessPartners() {
-      const response = await fetch('https://happy-cliff-0257bd403.3.azurestaticapps.net/api/sapbp/A_BusinessPartner?$top=10&$format=json');
+      const response = await fetch('/api/sapbp/A_BusinessPartner?$top=10&$format=json');
       const data = await response.json();
       setBusinessPartners(data.d.results);
     }
