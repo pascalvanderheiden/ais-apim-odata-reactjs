@@ -69,7 +69,7 @@ The following secrets need to be created:
 * REPO_TOKEN (see above)
 * AZURE_SUBSCRIPTION_ID
 * LOCATION
-* PREFIX
+* PREFIX (limit to max. 11 characters)
 * API_USERNAME (username for the SAP backend)
 * API_PASSWORD (username for the SAP backend)
 
@@ -90,7 +90,7 @@ on:
 
 ## Create a ReactJS app with ChatGPT
 
-I've used [ChatGPT](https://chatgpt.com/) to generate the ReactJS code. You can find the generated code in [this folder](./deploy/release/app/react-odata-app).
+I've used [ChatGPT](https://chat.openai.com/) to generate the ReactJS code. You can find the generated code in [this folder](./deploy/release/app/react-odata-app).
 
 First I asked ChatGPT: How do I create a reactjs app?
 
@@ -108,15 +108,92 @@ I just pasted these commands in the terminal in Visual Studio Code.
 
 And, voila! You have a ReactJS app running locally.
 
-![ais-apim-odata-reactjs](docs/images/react_app_runninggif)
+![ais-apim-odata-reactjs](docs/images/react_app_running.gif)
 
-Then I asked ChatGPT: Generate a reactjs app which shows a list of BusinessPartners from this API <my static web app url> and show the id and name in a list.
+Then I asked ChatGPT a couple of questions to generate the code that I wanted:
+
+* First: Can you add a button on this app.js file? And just pasted the code from the boilerplate.
+* Second: When you click the button, show a list of BusinessPartners, showing the BusinessPartner and the BusinessPartnerFullName from this api <url of my static web app api>.
+When I saved the code it showed the list straight away. And this is not what I wanted.
+* Third: It now shows the list straight away. Can you adjust the code so it would show the list, when you click the button and hide the list by adding a second button? 
 
 It gave me a spot on answer, and I just copied the code and pasted it in the App.js file.
 
 ![ais-apim-odata-reactjs](docs/images/chatgpt_generate_code_for_api.png)
 
-Commited the code to the repository and pushed it to GitHub. The GitHub Action deployed the ReactJS app to the Static Web App in Azure. Amazing!
+Here is the final code:
+
+```js
+import { useState, useEffect } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  const [businessPartners, setBusinessPartners] = useState([]);
+  const [showBusinessPartners, setShowBusinessPartners] = useState(false);
+
+  useEffect(() => {
+    async function fetchBusinessPartners() {
+      const response = await fetch('<url of my static web app api>');
+      const data = await response.json();
+      setBusinessPartners(data.d.results);
+    }
+    fetchBusinessPartners();
+  }, []);
+
+  function handleShowBusinessPartnersClick() {
+    setShowBusinessPartners(true);
+  }
+
+  function handleHideBusinessPartnersClick() {
+    setShowBusinessPartners(false);
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        {!showBusinessPartners && (
+          <button onClick={handleShowBusinessPartnersClick}>
+            Show Business Partners
+          </button>
+        )}
+        {showBusinessPartners && (
+          <div>
+            <button onClick={handleHideBusinessPartnersClick}>
+              Hide Business Partners
+            </button>
+            <ul>
+              {businessPartners.map((bp) => (
+                <li key={bp.BusinessPartner}>
+                  {bp.BusinessPartner} - {bp.BusinessPartnerFullName}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+Commited the code to the repository and pushed it to GitHub. The GitHub Action deployed the ReactJS app to the Static Web App in Azure. 
+
+This is amazing! This will save me so much time.
 
 ## Testing
 
