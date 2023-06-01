@@ -1,0 +1,39 @@
+{
+	"name": "nodejs",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot-nightly",
+				"GitHub.copilot-chat",
+				"ms-vscode.vscode-node-azure-pack",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"ms-vscode.azurecli",
+				"Azurite.azurite",
+				"ms-azuretools.vscode-bicep",
+				"ms-azuretools.vscode-apimanagement",
+				"humao.rest-client",
+			],
+			"settings": {
+				// Uncomment if you want to use zsh as the default shell
+				"terminal.integrated.defaultProfile.linux": "pwsh",
+				"terminal.integrated.profiles.linux": {
+				  "zsh": {
+					"path": "/usr/bin/zsh"
+				  },
+				  "pwsh": {
+					"path": "pwsh",
+					"icon": "terminal-powershell"
+				  }
+				}
+			}
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000],
+	"portsAttributes": {
+		"3000": {
+			"protocol": "https"
+		}
+	}
+}
