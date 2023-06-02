@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
 import './App.css';
+import turbopascal from './turbopascal.png';
 
 function App() {
   const [businessPartners, setBusinessPartners] = useState([]);
   const [showList, setShowList] = useState(false);
 
-  const handleShowList = () => {
-    fetch('/api/sapbp/A_BusinessPartner?$top=10&$format=json')
-      .then(response => response.json())
-      .then(data => setBusinessPartners(data.d.results))
-      .catch(error => console.log(error));
+  const fetchBusinessPartners = async () => {
+    const response = await fetch('/api/sapbp/A_BusinessPartner?$top=10&$format=json');
+    const data = await response.json();
+    setBusinessPartners(data.d.results);
     setShowList(true);
   };
 
-  const handleHideList = () => {
+  const hideList = () => {
     setShowList(false);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>My Business Partners</h1>
-        {showList ? (
-          <div className="business-partners-grid">
-            {businessPartners.map(businessPartner => (
-              <div key={businessPartner.BusinessPartner} className="business-partner-card">
-                <div className="business-partner-name">{businessPartner.BusinessPartnerFullName}</div>
-                <div className="business-partner-id">{businessPartner.BusinessPartner}</div>
-              </div>
-            ))}
-            <button onClick={handleHideList}>Hide List</button>
-          </div>
-        ) : (
-          <button onClick={handleShowList}>Show my Business Partners</button>
+        <img src={turbopascal} className="App-logo" alt="turbopascal" />
+        <h1 className="App-title">Business Partners from SAP ODATA</h1>
+        {!showList && <button onClick={fetchBusinessPartners}>Show my Business Partners</button>}
+        {showList && (
+          <>
+            <button onClick={hideList}>Hide Business Partners</button>
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Partner</th>
+                  <th>Business Partner Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {businessPartners.map((bp) => (
+                  <tr key={bp.BusinessPartner}>
+                    <td>{bp.BusinessPartner}</td>
+                    <td>{bp.BusinessPartnerName}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
       </header>
     </div>
