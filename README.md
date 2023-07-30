@@ -14,22 +14,22 @@
 
 | GitHub Action | Status |
 | ----------- | ----------- |
-| AZD Deploy | [![Deploy](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml/badge.svg?branch=main)](https://github.com/pascalvanderheiden/ais-apim-openai/actions/workflows/azure-dev.yml) |
+| `azd` deploy | [![Deploy](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml/badge.svg?branch=main)](https://github.com/pascalvanderheiden/ais-apim-openai/actions/workflows/azure-dev.yml) |
 
 ## About
 Expose your SAP OData APIs via Azure API Management and link it with Azure Static Web App to create a serverless web application blazing fast with GitHub Copilot or ChatGPT.
 
 Because I'm not a ReactJS developer, I used ChatGPT to generate the code and link it to SAP ODATA API via API Management. I've included the generated code in this repository, so you can see how it works. This is also the code which will be deployed to Azure Static Web App. After I published this repository, GitHub Copilot X came available, so I've used it to generate the code for the Azure Static Web App in the same way as I did with ChatGPT. The big benefit of GitHub Copilot is, is that you don't need to leave your development environment and have the copilot by your side helping you to finetune your application further. You can find more information about GitHub Copilot X [here](https://copilot.github.com/).
 
-I've "reorganized" this repository to make it Azure Developer CLI (AZD) compatible. I've used the Azure Developer CLI Bicep Starter template to create the AZD foundational files. With AZD you can create a new repository with a fully functional CI/CD pipeline in minutes. You can find more information about AZD [here](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/).
+I've "reorganized" this repository to make it Azure Developer CLI (`azd`) compatible. I've used the Azure Developer CLI Bicep Starter template to create the `azd` foundational files. With `azd` you can create a new repository with a fully functional CI/CD pipeline in minutes. You can find more information about `azd` [here](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/).
 
-One of the key points of AZD templates is that we can implement best practices together with our solution when it comes to security, network isolation, monitoring, etc. Users are free to define their own best practices for their dev teams & organization, so all deployments are followed by the same standards.
+One of the key points of `azd` templates is that we can implement best practices together with our solution when it comes to security, network isolation, monitoring, etc. Users are free to define their own best practices for their dev teams & organization, so all deployments are followed by the same standards.
 
 Hope you like it. If you have any questions, please let me know.
 
 The following assets have been provided:
 
-- Infrastructure-as-code (IaC) Bicep files under the `infra` folder that demonstrate how to provision resources and setup resource tagging for azd.
+- Infrastructure-as-code (IaC) Bicep files under the `infra` folder that demonstrate how to provision resources and setup resource tagging for `azd`.
 - A [dev container](https://containers.dev) configuration file under the `.devcontainer` directory that installs infrastructure tooling by default. This can be readily used to create cloud-hosted developer environments such as [GitHub Codespaces](https://aka.ms/codespaces).
 - Continuous deployment workflows for CI providers such as GitHub Actions under the `.github` directory, and Azure Pipelines under the `.azdo` directory that work for most use-cases.
 
@@ -135,7 +135,7 @@ And, voila! You have a ReactJS app running locally.
 Then I asked ChatGPT a couple of questions to generate the code that I wanted:
 
 * First: Can you add a button on this app.js file? And just pasted the code from the boilerplate.
-* Second: When you click the button, show a list of BusinessPartners, showing the BusinessPartner and the BusinessPartnerFullName from this api <url of my static web app api>.
+* Second: When you click the button, show a list of BusinessPartners, showing the BusinessPartner and the BusinessPartnerFullName from this api `url of my static web app api`.
 When I saved the code it showed the list straight away. And this is not what I wanted.
 * Third: It now shows the list straight away. Can you adjust the code so it would show the list, when you click the button and hide the list by adding a second button? 
 
@@ -219,7 +219,7 @@ If you are happy with the code, you can build the ReactJS app:
 npm run build
 ```
 
-Commit the code to the repository and push it to GitHub. Azure Developer CLI will pick up the changes and deploy the code to the static web app.
+Commit the code to the repository and push it to GitHub. Azure Developer CLI will pick up the changes and deploy the code to Azure.
 
 This is amazing! This will save me so much time.
 

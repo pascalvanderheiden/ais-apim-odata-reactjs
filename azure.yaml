@@ -6,6 +6,8 @@
 
 # Name of the application.
 name: ais-apim-odata-reactjs
+metadata:
+  template: ais-apim-odata-reactjs
 services:
   web:
     project: ./src/react-odata-app
