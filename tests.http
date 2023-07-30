@@ -1,17 +1,27 @@
-@subscriptionKey = <your_subscription_key>
-@odataEntity = <odata_entity>
-@apimName = <api_management_name>
-@apiPath = <api_path>
-@query = <query_parameters>
-@staticWebAppUri = <static_web_app_uri>
+@apimSubscriptionKey = <your-subscription-key>
+@apimName = <api-management-instance-name>
+@apimApiPath = <api-path>
+@staticWebAppUri = <static-web-app-uri>
+@odataEntity = <odata-entity>
+@odataQuery = <odata-query>
+@sapUri = <sap-uri>
+@sapApiKey = <sap-api-key>
+
+### Test SAP endpoint ODATA metadata
+GET {{sapUri}}/$metadata
+APIKey: {{sapApiKey}}
+
+### Test SAP endpoint ODATA table with Query
+GET {{sapUri}}/{{odataEntity}}?{{odataQuery}}
+APIKey: {{sapApiKey}}
 
 ### Test APIM endpoint ODATA metadata (only works if Testing Product Group is attached to the API)
-GET https://{{apimName}}.azure-api.net/{{apiPath}}/$metadata
-Ocp-Apim-Subscription-Key: {{subscriptionKey}}
+GET https://{{apimName}}.azure-api.net/{{apimApiPath}}/$metadata
+Ocp-Apim-Subscription-Key: {{apimSubscriptionKey}}
 
 ### Test APIM endpoint ODATA table with Query (only works if Testing Product Group is attached to the API)
-GET https://{{apimName}}.azure-api.net/{{apiPath}}/{{odataEntity}}?{{query}}
-Ocp-Apim-Subscription-Key: {{subscriptionKey}}
+GET https://{{apimName}}.azure-api.net/{{apimApiPath}}/{{odataEntity}}?{{odataQuery}}
+Ocp-Apim-Subscription-Key: {{apimSubscriptionKey}}
 
-### Test Link Static Web App to APIM (only works when CORS policy is set to allow all origins)
-GET {{staticWebAppUri}}/{{apiPath}}/{{odataEntity}}?{{query}}
+### Test Link Static Web App to APIM
+GET {{staticWebAppUri}}/{{apimApiPath}}/{{odataEntity}}?{{odataQuery}}
