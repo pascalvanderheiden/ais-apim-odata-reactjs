@@ -38,6 +38,8 @@ The following assets have been provided:
 
 You can setup your own SAP ODATA API in minutes by following these steps in this [tutorial](https://developers.sap.com/tutorials/gateway-demo-signup.html). You can find the API documentation [here](https://api.sap.com/api/API_BUSINESS_PARTNER/overview). You can test the API [here](https://api.sap.com/api/API_BUSINESS_PARTNER/tryout).
 
+ODATA API type just got into preview. You can find more information about how you can add your own SAP ODATA APIs in Azure API Management [here](https://learn.microsoft.com/en-us/azure/api-management/sap-api?tabs=odata).
+
 ## Next Steps
 
 ### Step 1: Initialize a new `azd` environment
@@ -80,13 +82,13 @@ This project includes a Github workflow and a Azure DevOps Pipeline for deployin
 azd pipeline config
 ```
 
-In addition to the azd secrets, you will also need to set the following Github secrets:
+In addition to the azd secrets, you will also need to set the following secrets in GitHub or ADO:
 * SAP_ENDPOINT (variable)
 * SAP_APIKEY (secret)
 
-You can updated the secrets here: https://github.com/<your-GH-account>/<your-repo>/secrets/actions.
+You can update the GitHub secrets here: https://github.com/<your-GH-account>/<your-repo>/secrets/actions.
 
-If you're not sure which values you've used for the secrets, you can run `azd env get-values` to see all the secrets/variables.
+If you're not sure which values you've used for the secrets, you can run `azd env get-values` to see all the secrets/variables you've used locally.
 
 ## Monitoring
 
