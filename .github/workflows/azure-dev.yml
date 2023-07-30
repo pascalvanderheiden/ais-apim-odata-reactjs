@@ -59,6 +59,8 @@ jobs:
         env:
           AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
           AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
+          SAP_APIKEY: ${{ secrets.SAP_APIKEY }}
+          SAP_ENDPOINT: ${{ vars.SAP_ENDPOINT }}
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Application
@@ -66,4 +68,6 @@ jobs:
         env:
           AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
           AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
+          SAP_APIKEY: ${{ secrets.SAP_APIKEY }}
+          SAP_ENDPOINT: ${{ vars.SAP_ENDPOINT }}
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}

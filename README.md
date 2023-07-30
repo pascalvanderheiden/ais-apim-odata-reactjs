@@ -80,6 +80,14 @@ This project includes a Github workflow and a Azure DevOps Pipeline for deployin
 azd pipeline config
 ```
 
+In addition to the azd secrets, you will also need to set the following Github secrets:
+* SAP_ENDPOINT (variable)
+* SAP_APIKEY (secret)
+
+You can updated the secrets here: https://github.com/<your-GH-account>/<your-repo>/secrets/actions.
+
+If you're not sure which values you've used for the secrets, you can run `azd env get-values` to see all the secrets/variables.
+
 ## Monitoring
 
 The deployed resources include a Log Analytics workspace with an Application Insights dashboard to measure metrics like server response time.
