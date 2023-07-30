@@ -1,6 +1,15 @@
 [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/pascalvanderheiden/ais-apim-odata-reactjs)
 [![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/pascalvanderheiden/ais-apim-odata-reactjs)
 
+<p align="left">
+    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/blob/main/LICENSE" alt="Repository License">
+        <img src="https://img.shields.io/github/license/pascalvanderheiden/ais-apim-odata-reactjs?color=yellow&label=License" /></a>
+    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/issues" alt="Open Issues">
+        <img src="https://img.shields.io/github/issues-raw/pascalvanderheiden/ais-apim-odata-reactjs?label=Open%20Issues" /></a>
+    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/pulls" alt="Open Pull Requests">
+        <img src="https://img.shields.io/github/issues-pr-raw/pascalvanderheiden/ais-apim-odata-reactjs?label=Open%20Pull%20Requests" /></a>
+</p>
+
 ## Build Status
 
 | GitHub Action | Status |
@@ -30,15 +39,16 @@ The following assets have been provided:
 
 ## Prerequisites
 
-- Install [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code.
 - [Azure Developer CLI](https://docs.microsoft.com/en-us/azure/developer/azure-developer-cli/)
+- Install [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code.
 - Install [NodeJS with NPM](https://nodejs.org/en/download/)
+- An SAP Environment. See below on how to setup your own SAP OData API. 
 
-## SAP ODATA API
+### SAP OData API
 
-You can setup your own SAP ODATA API in minutes by following these steps in this [tutorial](https://developers.sap.com/tutorials/gateway-demo-signup.html). You can find the API documentation [here](https://api.sap.com/api/API_BUSINESS_PARTNER/overview). You can test the API [here](https://api.sap.com/api/API_BUSINESS_PARTNER/tryout).
+You can setup SAP OData API in minutes. You need to signup and then you can tryout the API [here](https://api.sap.com/api/API_BUSINESS_PARTNER/tryout). You'll find the API documentation [here](https://api.sap.com/api/API_BUSINESS_PARTNER/overview). 
 
-ODATA API type just got into preview. You can find more information about how you can add your own SAP ODATA APIs in Azure API Management [here](https://learn.microsoft.com/en-us/azure/api-management/sap-api?tabs=odata).
+OData API type just got into public preview. You can find more information about how you can add your own SAP OData APIs in Azure API Management [here](https://learn.microsoft.com/en-us/azure/api-management/sap-api?tabs=odata).
 
 ## Next Steps
 
@@ -49,7 +59,7 @@ azd init
 ```
 
 It will prompt you to provide a name that will later be used in the name of the deployed resources.
-If you don't what to clone or fork the repository, you can use the following command to create a new repository with the same content as this repository:
+If you don't what to clone or fork the repository, you can use the following command to create a local copy of this repository:
 
 ```shell
 azd init -t https://github.com/pascalvanderheiden/ais-apim-odata-reactjs
@@ -86,7 +96,7 @@ In addition to the azd secrets, you will also need to set the following secrets 
 * SAP_ENDPOINT (variable)
 * SAP_APIKEY (secret)
 
-You can update the GitHub secrets here: https://github.com/<your-GH-account>/<your-repo>/secrets/actions.
+You can update the GitHub secrets here: https://github.com/your-github-account/your-repository/secrets/actions".
 
 If you're not sure which values you've used for the secrets, you can run `azd env get-values` to see all the secrets/variables you've used locally.
 
