@@ -1,14 +1,9 @@
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/pascalvanderheiden/ais-apim-odata-reactjs)
-[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/pascalvanderheiden/ais-apim-odata-reactjs)
+# React Web App with Azure API Management exposing SAP OData APIs
 
-<p align="left">
-    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/blob/main/LICENSE" alt="Repository License">
-        <img src="https://img.shields.io/github/license/pascalvanderheiden/ais-apim-odata-reactjs?color=yellow&label=License" /></a>
-    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/issues" alt="Open Issues">
-        <img src="https://img.shields.io/github/issues-raw/pascalvanderheiden/ais-apim-odata-reactjs?label=Open%20Issues" /></a>
-    <a href="https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/pulls" alt="Open Pull Requests">
-        <img src="https://img.shields.io/github/issues-pr-raw/pascalvanderheiden/ais-apim-odata-reactjs?label=Open%20Pull%20Requests" /></a>
-</p>
+Expose your SAP OData APIs via Azure API Management and link it with Azure Static Web App to create & integrate a serverless Web App blazing fast with GitHub Copilot or ChatGPT. Deployed with Azure Developer CLI (`azd`).
+
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=lightgrey&logo=github)](https://codespaces.new/pascalvanderheiden/ais-apim-odata-reactjs)
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Container&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/pascalvanderheiden/ais-apim-odata-reactjs)
 
 ## Build Status
 
@@ -17,8 +12,6 @@
 | `azd` deploy | [![Deploy](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml/badge.svg?branch=main)](https://github.com/pascalvanderheiden/ais-apim-openai/actions/workflows/azure-dev.yml) |
 
 ## About
-Expose your SAP OData APIs via Azure API Management and link it with Azure Static Web App to create a serverless web application blazing fast with GitHub Copilot or ChatGPT.
-
 Because I'm not a ReactJS developer, I used ChatGPT to generate the code and link it to SAP ODATA API via API Management. I've included the generated code in this repository, so you can see how it works. This is also the code which will be deployed to Azure Static Web App. After I published this repository, GitHub Copilot X came available, so I've used it to generate the code for the Azure Static Web App in the same way as I did with ChatGPT. The big benefit of GitHub Copilot is, is that you don't need to leave your development environment and have the copilot by your side helping you to finetune your application further. You can find more information about GitHub Copilot X [here](https://copilot.github.com/).
 
 I've "reorganized" this repository to make it Azure Developer CLI (`azd`) compatible. I've used the Azure Developer CLI Bicep Starter template to create the `azd` foundational files. With `azd` you can create a new repository with a fully functional CI/CD pipeline in minutes. You can find more information about `azd` [here](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/).
