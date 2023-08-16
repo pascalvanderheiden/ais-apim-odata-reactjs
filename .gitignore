@@ -1,5 +1,4 @@
 local.tests.http
 local.app.js
 local.app2.js
-/docs/raw/*.*
 .azure
