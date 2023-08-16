@@ -9,7 +9,7 @@ Expose your SAP OData APIs via Azure API Management and link it with Azure Stati
 
 | GitHub Action | Status |
 | ----------- | ----------- |
-| `azd` deploy | [![Deploy](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml/badge.svg?branch=main)](https://github.com/pascalvanderheiden/ais-apim-openai/actions/workflows/azure-dev.yml) |
+| `azd` deploy | [![Deploy](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml/badge.svg?branch=main)](https://github.com/pascalvanderheiden/ais-apim-odata-reactjs/actions/workflows/azure-dev.yml) |
 
 ## About
 Because I'm not a ReactJS developer, I used ChatGPT to generate the code and link it to SAP ODATA API via API Management. I've included the generated code in this repository, so you can see how it works. This is also the code which will be deployed to Azure Static Web App. After I published this repository, GitHub Copilot X came available, so I've used it to generate the code for the Azure Static Web App in the same way as I did with ChatGPT. The big benefit of GitHub Copilot is, is that you don't need to leave your development environment and have the copilot by your side helping you to finetune your application further. You can find more information about GitHub Copilot X [here](https://copilot.github.com/).
