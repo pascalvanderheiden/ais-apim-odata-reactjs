@@ -230,7 +230,7 @@ Set-AzContext -Subscription $subscriptionId
 
 ## Testing
 
-I've included a [tests.http](tests.http) file with relevant tests you can perform, to check if your deployment is successful. You need a subcription key in API Management in order to test the API. You can find more information about how to get a subscription key [here](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-create-subscriptions#add-a-subscription-key-to-a-user).
+I've included a [tests.http](tests.http) file with relevant tests you can perform, to check if your deployment is successful. You need a subscription key in API Management in order to test the API. You can find more information about how to get a subscription key [here](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-create-subscriptions#add-a-subscription-key-to-a-user).
 
 ## Additional Details
 
