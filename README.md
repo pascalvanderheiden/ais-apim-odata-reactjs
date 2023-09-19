@@ -97,6 +97,8 @@ You can update the GitHub secrets here: https://github.com/your-github-account/y
 
 If you're not sure which values you've used for the secrets, you can run `azd env get-values` to see all the secrets/variables you've used locally.
 
+If you are using Azure DevOps for your deployment, check out [this](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/configure-devops-pipeline?tabs=azdo) article on how to configure your Azure DevOps environment.
+
 ## Monitoring
 
 The deployed resources include a Log Analytics workspace with an Application Insights dashboard to measure metrics like server response time.
@@ -108,6 +110,8 @@ azd monitor --overview
 ```
 
 ## Create a ReactJS app with ChatGPT
+
+Now that the infrastructure is in place, we can create / generate our ReactJS App. If you just want to deploy the ReactJS App I've generated, you can skip this step and go to the next step.
 
 I've used [ChatGPT](https://chat.openai.com/) to generate the ReactJS code. You can find the generated code in [this folder](./src/react-odata-app).
 
@@ -210,15 +214,23 @@ function App() {
 export default App;
 ```
 
-If you are happy with the code, you can build the ReactJS app:
+This is amazing! This will save me so much time.
+
+## Build & deploy the ReactJS app to Azure
+
+If you are happy with the code you've generated in the previous step, you can build the ReactJS app using the following command. If you want to use the sample I've created, you need to go this folder first: `cd src/react-odata-app`, and then run the command.
 
 ```ps1
 npm run build
 ```
 
-Commit the code to the repository and push it to GitHub. Azure Developer CLI will pick up the changes and deploy the code to Azure.
+If you have used the `azd pipeline config` command, you can commit the code to the repository and push it to GitHub. The configured GitHub Action will pick up the changes and deploy the code to Azure Static Web App automatically.
 
-This is amazing! This will save me so much time.
+If you just want to push you code to Azure directly, you can use the `azd up` command. This will deploy it to Azure Static Web App manually.
+
+```shell
+azd up
+```
 
 ## Remove the APIM Soft-delete
 
