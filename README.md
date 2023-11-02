@@ -125,7 +125,7 @@ npx create-react-app <app_name>
 cd <app_name>
 npm start
 ```
-I just pasted these commands in the terminal in Visual Studio Code.
+I just pasted these commands in the terminal in Visual Studio Code. For the deployment to work, please use the same folder name I've used: `react-odata-app` in the `src` folder, so `azd` can find the code for the deployment.
 
 ![ais-apim-odata-reactjs](docs/images/vscode_create_reactjs_app.gif)
 
